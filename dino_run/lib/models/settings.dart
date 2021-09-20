@@ -1,9 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:flutter/foundation.dart';
-
 part 'settings.g.dart';
 
-// This class stores the game settings persistently.
 @HiveType(typeId: 1)
 class Settings extends ChangeNotifier with HiveObjectMixin {
   Settings({bool bgm = false, bool sfx = false}) {

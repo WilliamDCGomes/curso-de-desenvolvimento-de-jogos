@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../game/dino_run.dart';
@@ -7,12 +6,9 @@ import '../models/player_data.dart';
 import 'hud.dart';
 import 'main_menu.dart';
 
-// This represents the pause menu overlay.
 class PauseMenu extends StatelessWidget {
-  // An unique identified for this overlay.
   static const id = 'PauseMenu';
 
-  // Reference to parent game.
   final DinoRun gameRef;
 
   const PauseMenu(this.gameRef, {Key? key}) : super(key: key);

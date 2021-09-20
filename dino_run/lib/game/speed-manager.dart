@@ -1,4 +1,3 @@
-
 class scenespeed{
   static final scenespeed _scenespeed = scenespeed._internal();
   factory scenespeed() {

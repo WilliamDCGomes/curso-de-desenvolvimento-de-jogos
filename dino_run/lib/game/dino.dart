@@ -5,8 +5,6 @@ import '../models/player_data.dart';
 import 'dino_run.dart';
 import 'enemy.dart';
 
-
-/// This enum represents the animation states of [Dino].
 enum DinoAnimationStates {
   Idle,
   Run,
@@ -15,10 +13,8 @@ enum DinoAnimationStates {
   Sprint,
 }
 
-// This represents the dino character of this game.
 class Dino extends SpriteAnimationGroupComponent<DinoAnimationStates>
     with Hitbox, Collidable, HasGameRef<DinoRun> {
-  // A map of all the animation states and their corresponding animations.
   static final _animationMap = {
     DinoAnimationStates.Idle: SpriteAnimationData.sequenced(
       amount: 4,
@@ -50,15 +46,8 @@ class Dino extends SpriteAnimationGroupComponent<DinoAnimationStates>
       texturePosition: Vector2((4 + 6 + 4 + 3) * 24, 0),
     ),
   };
-
-  // The max distance from top of the screen beyond which
-  // dino should never go. Basically the screen height - ground height
   double yMax = 0.0;
-
-  // Dino's current speed along y-axis.
   double speedY = 0.0;
-
-  // Controlls how long the hit animations will be played.
   Timer _hitTimer = Timer(1);
 
   static const double GRAVITY = 850;
@@ -72,16 +61,11 @@ class Dino extends SpriteAnimationGroupComponent<DinoAnimationStates>
 
   @override
   void onMount() {
-    // First reset all the important properties, because onMount()
-    // will be called even while restarting the game.
     this._reset();
-
-    // Add a hitbox for dino.
     final shape = HitboxRectangle(relation: Vector2(0.5, 0.7));
     addShape(shape);
     yMax = this.y;
 
-    /// Set the callback for [_hitTimer].
     _hitTimer.callback = () {
       this.current = DinoAnimationStates.Run;
       this.isHit = false;
@@ -92,13 +76,10 @@ class Dino extends SpriteAnimationGroupComponent<DinoAnimationStates>
 
   @override
   void update(double dt) {
-    // v = u + at
     this.speedY += GRAVITY * dt;
 
-    // d = s0 + s * t
     this.y += this.speedY * dt;
 
-    /// This code makes sure that dino never goes beyond [yMax].
     if (isOnGround) {
       this.y = this.yMax;
       this.speedY = 0.0;
@@ -112,32 +93,23 @@ class Dino extends SpriteAnimationGroupComponent<DinoAnimationStates>
     super.update(dt);
   }
 
-  // Gets called when dino collides with other Collidables.
   @override
   void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
-    // Call hit only if other component is an Enemy and dino
-    // is not already in hit state.
     if ((other is Enemy) && (!isHit)) {
       this.hit();
     }
     super.onCollision(intersectionPoints, other);
   }
 
-  // Returns true if dino is on ground.
   bool get isOnGround => (this.y >= this.yMax);
 
-  // Makes the dino jump.
   void jump() {
-    // Jump only if dino is on ground.
     if (isOnGround) {
       this.speedY = -400;
       this.current = DinoAnimationStates.Idle;
     }
   }
 
-  // This method changes the animation state to
-  /// [DinoAnimationStates.Hit], plays the hit sound
-  /// effect and reduces the player life by 1.
   void hit() {
     this.isHit = true;
     this.current = DinoAnimationStates.Hit;
@@ -145,8 +117,6 @@ class Dino extends SpriteAnimationGroupComponent<DinoAnimationStates>
     playerData.lives -= 1;
   }
 
-  // This method reset some of the important properties
-  // of this component back to normal.
   void _reset() {
     this.shouldRemove = false;
     this.anchor = Anchor.bottomLeft;

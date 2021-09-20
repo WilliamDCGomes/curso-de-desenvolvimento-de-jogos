@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import '../game/dino_run.dart';
 import 'hud.dart';
 
-// This represents the main menu overlay.
 class MainMenu extends StatelessWidget {
-  // An unique identified for this overlay.
   static const id = 'MainMenu';
 
-  // Reference to parent game.
   final DinoRun gameRef;
 
   const MainMenu(this.gameRef, {Key? key}) : super(key: key);

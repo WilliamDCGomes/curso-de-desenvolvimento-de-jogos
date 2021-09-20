@@ -1,20 +1,14 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../game/dino_run.dart';
 import '../models/player_data.dart';
 import 'hud.dart';
 import 'main_menu.dart';
 
-// This represents the game over overlay,
-// displayed with dino runs out of lives.
 class GameOverMenu extends StatelessWidget {
-  // An unique identified for this overlay.
   static const id = 'GameOverMenu';
 
-  // Reference to parent game.
   final DinoRun gameRef;
 
   const GameOverMenu(this.gameRef, {Key? key}) : super(key: key);
