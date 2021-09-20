@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../game/audio_manager.dart';
 import '../game/dino_run.dart';
 import '../models/player_data.dart';
 import 'pause_menu.dart';
@@ -34,7 +32,7 @@ class Hud extends StatelessWidget {
                   selector: (_, playerData) => playerData.currentScore,
                   builder: (_, score, __) {
                     return Text(
-                      'Score: $score',
+                      'Pontuação Atual: $score',
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     );
                   },
@@ -43,7 +41,7 @@ class Hud extends StatelessWidget {
                   selector: (_, playerData) => playerData.highScore,
                   builder: (_, highScore, __) {
                     return Text(
-                      'High: $highScore',
+                      'Maior Pontuação: $highScore',
                       style: TextStyle(color: Colors.white),
                     );
                   },
@@ -55,7 +53,6 @@ class Hud extends StatelessWidget {
                 gameRef.overlays.remove(Hud.id);
                 gameRef.overlays.add(PauseMenu.id);
                 gameRef.pauseEngine();
-                AudioManager.instance.pauseBgm();
               },
               child: Icon(Icons.pause, color: Colors.white),
             ),

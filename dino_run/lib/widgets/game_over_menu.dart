@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../game/audio_manager.dart';
 import '../game/dino_run.dart';
 import '../models/player_data.dart';
 import 'hud.dart';
@@ -65,7 +64,6 @@ class GameOverMenu extends StatelessWidget {
                         gameRef.resumeEngine();
                         gameRef.reset();
                         gameRef.startGamePlay();
-                        AudioManager.instance.resumeBgm();
                       },
                     ),
                     ElevatedButton(
@@ -80,7 +78,6 @@ class GameOverMenu extends StatelessWidget {
                         gameRef.overlays.add(MainMenu.id);
                         gameRef.resumeEngine();
                         gameRef.reset();
-                        AudioManager.instance.resumeBgm();
                       },
                     ),
                   ],

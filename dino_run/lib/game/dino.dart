@@ -1,10 +1,7 @@
 import 'dart:ui';
-
 import 'package:flame/geometry.dart';
 import 'package:flame/components.dart';
-
 import '../models/player_data.dart';
-import 'audio_manager.dart';
 import 'dino_run.dart';
 import 'enemy.dart';
 
@@ -135,7 +132,6 @@ class Dino extends SpriteAnimationGroupComponent<DinoAnimationStates>
     if (isOnGround) {
       this.speedY = -400;
       this.current = DinoAnimationStates.Idle;
-      AudioManager.instance.playSfx('jump14.wav');
     }
   }
 
@@ -144,7 +140,6 @@ class Dino extends SpriteAnimationGroupComponent<DinoAnimationStates>
   /// effect and reduces the player life by 1.
   void hit() {
     this.isHit = true;
-    AudioManager.instance.playSfx('hurt7.wav');
     this.current = DinoAnimationStates.Hit;
     _hitTimer.start();
     playerData.lives -= 1;

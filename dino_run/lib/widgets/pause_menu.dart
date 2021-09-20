@@ -2,8 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../game/audio_manager.dart';
 import '../game/dino_run.dart';
 import '../models/player_data.dart';
 import 'hud.dart';
@@ -55,7 +53,6 @@ class PauseMenu extends StatelessWidget {
                         gameRef.overlays.remove(PauseMenu.id);
                         gameRef.overlays.add(Hud.id);
                         gameRef.resumeEngine();
-                        AudioManager.instance.resumeBgm();
                       },
                       child: Text(
                         'Resume',
@@ -71,7 +68,6 @@ class PauseMenu extends StatelessWidget {
                         gameRef.resumeEngine();
                         gameRef.reset();
                         gameRef.startGamePlay();
-                        AudioManager.instance.resumeBgm();
                       },
                       child: Text(
                         'Restart',
@@ -86,7 +82,6 @@ class PauseMenu extends StatelessWidget {
                         gameRef.overlays.add(MainMenu.id);
                         gameRef.resumeEngine();
                         gameRef.reset();
-                        AudioManager.instance.resumeBgm();
                       },
                       child: Text(
                         'Exit',

@@ -1,10 +1,7 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
 import '../game/dino_run.dart';
 import 'hud.dart';
-import 'settings_menu.dart';
 
 // This represents the main menu overlay.
 class MainMenu extends StatelessWidget {
@@ -34,7 +31,7 @@ class MainMenu extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Dino Run',
+                    'Dino Crazy',
                     style: TextStyle(
                       fontSize: 50,
                       color: Colors.white,
@@ -48,18 +45,6 @@ class MainMenu extends StatelessWidget {
                     },
                     child: Text(
                       'Play',
-                      style: TextStyle(
-                        fontSize: 30,
-                      ),
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      gameRef.overlays.remove(MainMenu.id);
-                      gameRef.overlays.add(SettingsMenu.id);
-                    },
-                    child: Text(
-                      'Settings',
                       style: TextStyle(
                         fontSize: 30,
                       ),

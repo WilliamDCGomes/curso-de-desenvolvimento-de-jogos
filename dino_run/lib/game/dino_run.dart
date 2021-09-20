@@ -5,13 +5,11 @@ import 'package:flame/parallax.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
-
 import '../models/player_data.dart';
 import '../models/settings.dart';
 import '../widgets/game_over_menu.dart';
 import '../widgets/hud.dart';
 import '../widgets/pause_menu.dart';
-import 'audio_manager.dart';
 import 'dino.dart';
 import 'enemy_manager.dart';
 import 'speed-manager.dart';
@@ -47,11 +45,9 @@ class DinoRun extends BaseGame with TapDetector, HasCollidables {
     settings = await _readSettings();
 
     /// Initilize [AudioManager].
-    await AudioManager.instance.init(_audioAssets, settings);
 
     // Start playing background music. Internally takes care
     // of checking user settings.
-    AudioManager.instance.startBgm('8Bit Platformer Loop.wav');
 
     // Cache all the images.
     await images.loadAll(_imageAssets);
@@ -110,7 +106,6 @@ class DinoRun extends BaseGame with TapDetector, HasCollidables {
       this.overlays.add(GameOverMenu.id);
       this.overlays.remove(Hud.id);
       this.pauseEngine();
-      AudioManager.instance.pauseBgm();
     }
     super.update(dt);
   }

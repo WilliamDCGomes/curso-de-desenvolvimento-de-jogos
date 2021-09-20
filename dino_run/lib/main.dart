@@ -9,7 +9,6 @@ import 'models/settings.dart';
 import 'widgets/main_menu.dart';
 import 'models/player_data.dart';
 import 'widgets/pause_menu.dart';
-import 'widgets/settings_menu.dart';
 import 'widgets/game_over_menu.dart';
 
 /// This is the single instance of [DinoRun] which
@@ -76,7 +75,6 @@ class DinoRunApp extends StatelessWidget {
             PauseMenu.id: (_, DinoRun gameRef) => PauseMenu(gameRef),
             Hud.id: (_, DinoRun gameRef) => Hud(gameRef),
             GameOverMenu.id: (_, DinoRun gameRef) => GameOverMenu(gameRef),
-            SettingsMenu.id: (_, DinoRun gameRef) => SettingsMenu(gameRef),
           },
           // By default MainMenu overlay will be active.
           initialActiveOverlays: [MainMenu.id],
