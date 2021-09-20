@@ -15,17 +15,11 @@ import 'enemy_manager.dart';
 import 'speed-manager.dart';
 
 class DinoRun extends BaseGame with TapDetector, HasCollidables {
-  static const _imageAssets = [
+  static var _imageAssets = [
     'DinoSprites - tard.png',
     'cacto.png',
     'meteor.png',
     'homemcaverna.png',
-  ];
-
-  static const _audioAssets = [
-    '8Bit Platformer Loop.wav',
-    'hurt7.wav',
-    'jump14.wav',
   ];
 
   late Dino _dino;

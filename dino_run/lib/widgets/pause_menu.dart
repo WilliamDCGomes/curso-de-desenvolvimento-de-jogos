@@ -7,7 +7,7 @@ import 'hud.dart';
 import 'main_menu.dart';
 
 class PauseMenu extends StatelessWidget {
-  static const id = 'PauseMenu';
+  static var id = 'PauseMenu';
 
   final DinoRun gameRef;
 
@@ -38,7 +38,7 @@ class PauseMenu extends StatelessWidget {
                         selector: (_, playerData) => playerData.currentScore,
                         builder: (_, score, __) {
                           return Text(
-                            'Score: $score',
+                            'Pontuação: $score',
                             style: TextStyle(fontSize: 40, color: Colors.white),
                           );
                         },
@@ -51,22 +51,7 @@ class PauseMenu extends StatelessWidget {
                         gameRef.resumeEngine();
                       },
                       child: Text(
-                        'Resume',
-                        style: TextStyle(
-                          fontSize: 30,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        gameRef.overlays.remove(PauseMenu.id);
-                        gameRef.overlays.add(Hud.id);
-                        gameRef.resumeEngine();
-                        gameRef.reset();
-                        gameRef.startGamePlay();
-                      },
-                      child: Text(
-                        'Restart',
+                        'Continuar',
                         style: TextStyle(
                           fontSize: 30,
                         ),
@@ -80,7 +65,7 @@ class PauseMenu extends StatelessWidget {
                         gameRef.reset();
                       },
                       child: Text(
-                        'Exit',
+                        'Sair',
                         style: TextStyle(
                           fontSize: 30,
                         ),

@@ -4,8 +4,7 @@
 
 #include "flutter/generated_plugin_registrant.h"
 
-FlutterWindow::FlutterWindow(RunLoop* run_loop,
-                             const flutter::DartProject& project)
+FlutterWindow::FlutterWindow(RunLoop* run_loop, flutter::DartProject& project)
     : run_loop_(run_loop), project_(project) {}
 
 FlutterWindow::~FlutterWindow() {}

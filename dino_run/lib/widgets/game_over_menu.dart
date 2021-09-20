@@ -7,7 +7,7 @@ import 'hud.dart';
 import 'main_menu.dart';
 
 class GameOverMenu extends StatelessWidget {
-  static const id = 'GameOverMenu';
+  static var id = 'GameOverMenu';
 
   final DinoRun gameRef;
 
@@ -40,7 +40,7 @@ class GameOverMenu extends StatelessWidget {
                       selector: (_, playerData) => playerData.currentScore,
                       builder: (_, score, __) {
                         return Text(
-                          'You Score: $score',
+                          'Sua Pontuação: $score',
                           style: TextStyle(fontSize: 40, color: Colors.white),
                         );
                       },

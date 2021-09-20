@@ -52,8 +52,7 @@ class DinoRunApp extends StatelessWidget {
         body: GameWidget(
           loadingBuilder: (conetxt) => Center(
             child: Container(
-              width: 200,
-              child: LinearProgressIndicator(),
+              child: CircularProgressIndicator(),
             ),
           ),
           overlayBuilderMap: {
