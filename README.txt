@@ -1,0 +1,1 @@
+O jogo se baseia em um dinossauro que tem que correr pelo mapa e se desviar dos obstáculos. Cada obstáculo superado é um ponto a mais que se ganha.
